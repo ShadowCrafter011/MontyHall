@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-from ProgressBar import PBar
+from shadowbar import ProgressBar
 import TrueRandom
 import random
 
@@ -14,7 +14,7 @@ def main():
     random.seed(seed)
 
     print(f"Computing {'{:,}'.format(attempts * 2)} games")
-    progress, pbar = PBar.new(50, attempts * 2, refresh_rate=.5)
+    progress, pbar = ProgressBar.new(50, attempts * 2, refresh_rate=.5)
 
     wins_switch = 0
     wins_no_switch = 0
