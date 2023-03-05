@@ -1,9 +1,11 @@
+from dotenv import load_dotenv
 from ProgressBar import PBar
 import TrueRandom
 import random
 
 
 def main():
+    load_dotenv()
 
     attempts = int(1e6)
     attempts_str = "{:,}".format(attempts)
