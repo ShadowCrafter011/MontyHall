@@ -1,11 +1,11 @@
 from ProgressBar import PBar
-from Game import Game
 import TrueRandom
 import random
 
 
 def main():
-    attempts = int(1e7)
+
+    attempts = int(1e6)
     attempts_str = "{:,}".format(attempts)
 
     seed = TrueRandom.randint()
@@ -17,8 +17,8 @@ def main():
     wins_switch = 0
     wins_no_switch = 0
     for _ in range(attempts):
-        wins_switch += Game(rint(), rint(), True).win()
-        wins_no_switch += Game(rint(), rint(), False).win()
+        wins_switch += won(True)
+        wins_no_switch += won(False)
         progress.value += 2
     pbar.wait_complete()
 
@@ -29,8 +29,13 @@ def main():
     print(f"Wins without switch\t\t{no_switch_str}/{attempts_str}\t{round(wins_no_switch * 100 / attempts, 2)}%")
 
 
-def rint():
+def rand():
     return random.randint(0, 2)
+
+
+def won(switch):
+    car, choice = rand(), rand()
+    return (switch and car != choice) or (not switch and car == choice)
 
 
 if __name__ == '__main__':
