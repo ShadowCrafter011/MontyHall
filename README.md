@@ -4,6 +4,7 @@ Proving the Monty Hall problem using Python
 # Requirements
 - requests
 - python-dotenv
+- shadowbar (Progress bar developed by myself)
 
 # Get started
 - Sign up for a free [random.org](https://accounts.random.org/create) account
